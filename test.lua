@@ -9,19 +9,19 @@ ProtoSquid.register("draw")
 ProtoSquid.register("update")
 ProtoSquid.register("specialEvent")
 
-for i = 1, 3 do
-    local s = ProtoSquid.create("squid_" .. i)
-    s.alive = true
-    s.debug = true
-    s.subscribe("start")
-    s.subscribe("draw")
-    s.subscribe("update")
-end
+local s = ProtoSquid.create("squid_1")
+s.alive = true
+s.debug = true
+s.subscribe("start")
+s.subscribe("draw")
+s.subscribe("specialEvent")
+s.subscribe("update")
 
 local specialSquid = ProtoSquid.create("specialSquid")
 specialSquid.alive = true
 specialSquid.debug = true
-specialSquid.subscribe("specialEvent", function()
+specialSquid.subscribe("specialEvent", function(self)
+    print(self.name .. " is being notified... ")
     print("This is the callback just for this event on this squid!")
 end)
 

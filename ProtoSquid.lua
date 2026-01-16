@@ -80,7 +80,7 @@ ProtoSquid.create = function(name)
             notify = function()
                 if squid.alive then
                     if type(onTrigger) == "function" then
-                        onTrigger()
+                        onTrigger(squid)
                     else
                         if squid.debug then
                             print(eventName .. ' ' .. squid.name)
